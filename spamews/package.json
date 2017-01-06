@@ -1,0 +1,27 @@
+{
+  "name": "spamme",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "author": "Daniel Shamama & Mor Kasus & Yossi Azulay",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "hash-files": "^1.1.1",
+    "jsonwebtoken": "^7.0.0",
+    "mongodb": "^1.3.23",
+    "mongoose": "^4.4.19"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "run-sequence": "^1.2.2"
+  },
+  "description": ""
+}

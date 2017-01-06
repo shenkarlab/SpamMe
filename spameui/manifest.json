@@ -1,0 +1,35 @@
+{
+	"name": "Spam Me",
+	"version": "1.0",
+	"manifest_version": 2,
+	"description": "Gmail API Extension",
+	"permissions": [
+		"activeTab",
+		"identity",
+		"*://*.google.com/*",
+		"http://*/"
+	],
+	"content_scripts": [{
+        "matches": ["*://*/*"],
+		"css": [
+			"treemap/jqx.base.css"
+		]
+	}],
+	"web_accessible_resources": [
+		"treemap/jqx.base.css"
+	],
+	"background": {
+		"scripts": ["jquery-3.1.1.min.js", "base64.js", "treemap/jqxcore.js", "treemap/jqxtooltip.js", "treemap/jqxtreemap.js", "treemap/demos.js", "background.js"],
+		"persistent": false
+	},
+	"browser_action": {
+		"default_title": "Make this page red"
+	},
+	"content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
+	"oauth2": {
+		"client_id": "560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com",
+		"scopes": [
+			"https://www.googleapis.com/auth/gmail.modify"
+		]
+	}
+}
