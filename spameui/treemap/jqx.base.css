@@ -1,3 +1,7 @@
+#treemap {
+    margin-bottom: 5px;
+}
+
 
 .jqx-rc-tl
 {
@@ -4250,21 +4254,31 @@ ol li .jqx-listmenu-item-label:before
 .jqx-treemap-rectangle {
     font-size: 13px;
     font-weight: normal;
-    border: 1px solid #555;
-    color: #222;
+    border: 1px solid #f6f4f7;
+    vertical-align: middle;
+    color: #fff;
     text-shadow: 0px 0px 0px;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
 }
 .jqx-treemap-label {
+    
     text-overflow: ellipsis;
     overflow: hidden;
+    margin-top: 5px;
+    font-weight: 400;
 }
 .jqx-treemap-rectangle-parent {
     color: #222;
-    font-size: 15px;
+    background: #f6f4f7 !important;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 12px;
     font-family: Verdana;
-    font-weight: bold;
+    font-weight: 400;
+    vertical-align: middle;
+    padding: 5px 0px 0px 5px;
 }
 .jqx-treemap-legend-label {
     color: #fff;

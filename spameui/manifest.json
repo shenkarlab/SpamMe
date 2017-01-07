@@ -16,7 +16,32 @@
 		]
 	}],
 	"web_accessible_resources": [
-		"treemap/jqx.base.css"
+		"treemap/jqx.base.css",
+        "treemap/images/family.gif",
+        "treemap/images/business.gif",
+        "treemap/images/buy.gif",
+        "treemap/images/clothing.gif",
+        "treemap/images/discounts.gif",
+        "treemap/images/drinks.gif",
+        "treemap/images/electronics.gif",
+        "treemap/images/food.gif",
+        "treemap/images/general.gif",
+        "treemap/images/greeting.gif",
+        "treemap/images/happy.gif",
+        "treemap/images/hi-tech.gif",
+        "treemap/images/investment.gif",
+        "treemap/images/lost.gif",
+        "treemap/images/lottory.gif",
+        "treemap/images/marketing.gif",
+        "treemap/images/money.gif",
+        "treemap/images/offers.gif",
+        "treemap/images/personal.gif",
+        "treemap/images/real-estate.gif",
+        "treemap/images/shopping.gif",
+        "treemap/images/sells.gif",
+        "treemap/images/success.gif",
+        "treemap/images/urgency.gif",
+        "treemap/images/work.gif"
 	],
 	"background": {
 		"scripts": ["jquery-3.1.1.min.js", "base64.js", "treemap/jqxcore.js", "treemap/jqxtooltip.js", "treemap/jqxtreemap.js", "treemap/demos.js", "background.js"],
