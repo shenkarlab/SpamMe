@@ -52,7 +52,7 @@
 	},
 	"content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
 	"oauth2": {
-		"client_id": "560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com",
+		"client_id": "<client-id>",
 		"scopes": [
 			"https://www.googleapis.com/auth/gmail.modify"
 		]

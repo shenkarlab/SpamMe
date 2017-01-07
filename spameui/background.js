@@ -1,7 +1,9 @@
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'complete' && tab.active) {
       if(tab.url.includes("#spam")){
-          gmailAPILoaded();
+          loadSpamMessages();
+      } else {
+         $('#treemap').remove();
       }
   }
 })
@@ -38,7 +40,7 @@ function loadScript(url){
 function authorize(){
   gapi.auth.authorize(
 		{
-			client_id: '560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com',
+			client_id: '<client-id>',
 			immediate: true,
 			scope: 'https://www.googleapis.com/auth/gmail.modify'
 		},
@@ -46,11 +48,6 @@ function authorize(){
 		  gapi.client.load('gmail', 'v1');
 		}
 	);
-}
-
-function gmailAPILoaded(){
-    //do stuff here
-    loadSpamMessages();
 }
 
 function loadSpamMessages(){
@@ -75,12 +72,12 @@ function loadSpamMessages(){
 function sendMessagestoCategories(msgs){
   $.ajax({
     type: "POST",
-    url: "http://localhost:1337/spam/getAllCategories",
+    url: "https://protected-bastion-14333.herokuapp.com/spam/getAllCategories",
+//    url: "http://localhost:1337/spam/getAllCategories",
     data: {
       massages: generateRequestData(msgs)
     },
     success: function( data ) {
-        console.log("success" + data);
         drawResult(data.categoriesRate);
     }
   });
@@ -101,7 +98,8 @@ function generateRequestData(data){
 function createTreemapFromRespone(data) {
     var result = [];
     var colors = ["#629AF1", "#1BB15A", "#F9C21A", "#D74A39", "#8038CC"];
-    var stringRes = "[";
+    
+    //convert the response data for treemap
     data.forEach(function(el, index){
         if(el.subCategories.length != 0) {
             result.push({
@@ -121,9 +119,8 @@ function createTreemapFromRespone(data) {
         }
     });
     
-    stringRes = stringRes.substr(0, stringRes.length-1);
-    stringRes += "]";
     
+    //We should use jquery code for build the graph.
     return `
          $(function () {
                 $('#treemap').jqxTreeMap({
@@ -155,7 +152,6 @@ function createTreemapFromRespone(data) {
 }
 
 function drawResult(results){
-    console.log(results);
     chrome.tabs.executeScript(null, { file: "treemap/jqx.base.css" } , function() {
             chrome.tabs.executeScript(null, { file: "jquery-3.1.1.min.js"}, function(){
                   chrome.tabs.executeScript(null, { file: "treemap/jqxcore.js"}, function(){
@@ -166,7 +162,6 @@ function drawResult(results){
                                       chrome.tabs.executeScript({
                                         code: `
                                                     var newEl = document.createElement("div");
-                                                    newEl.innerHTML = 'loading';
                                                     newEl.setAttribute("id", "treemap");
                                                     document.getElementById(':4').insertBefore(newEl, document.getElementById(':2'));
 
@@ -301,120 +296,3 @@ function returnMockJson(){
             
             ]`;
 }
-
-
-//var templateHTml = `
-// $(function () {
-//            var data = [
-//            {
-//                label: 'Amotions',
-//                value: null,
-//                color: '#629AF1'
-//            },
-//            {
-//                label: 'Life-Style',
-//                value: null,
-//                color: '#1BB15A'
-//            },
-//            {
-//                label: 'Commerce',
-//                value: null,
-//                color: '#F9C21A'
-//            },
-//            {
-//                label: 'Financial',
-//                value: null,
-//                color: '#D74A39'
-//            },
-//            {
-//                label: 'Advertising',
-//                value: null,
-//                color: '#8038CC'
-//            },
-//            {
-//                label: 'Happy',
-//                value: 5,
-//                parent: 'Amotions',
-//                data: { description: "4 Emails", title: "Life-Style#Family" }
-//            },
-//            {
-//                label: 'Greeting',
-//                value: 5,
-//                parent: 'Amotions',
-//                data: { description: "5 Emails", title: "Commerce#Offers" }
-//            },
-//            {
-//                label: 'Pressure',
-//                value: 1,
-//                parent: 'Amotions',
-//                data: { description: "4 Emails5 Emails", title: "Commerce#Sells" }
-//            },
-//            {
-//                label: 'Success',
-//                value: 2,
-//                parent: 'Amotions',
-//                data: { description: "1 Emails", title: "Commerce#Hi-tech" }
-//            },
-//            {
-//                label: 'Family',
-//                value: 4,
-//                parent: 'Life-Style',
-//                data: { description: "4 Emails", title: "Life-Style#Family" }
-//            },
-//            {
-//                label: 'Offers',
-//                value: 5,
-//                parent: 'Commerce',
-//                data: { description: "5 Emails", title: "Commerce#Offers" }
-//            },
-//            {
-//                label: 'Sells',
-//                value: 4,
-//                parent: 'Commerce',
-//                data: { description: "4 Emails5 Emails", title: "Commerce#Sells" }
-//            },
-//            {
-//                label: 'Hi-tech',
-//                value: 1,
-//                parent: 'Commerce',
-//                data: { description: "1 Emails", title: "Commerce#Hi-tech" }
-//            },
-//            {
-//                label: 'buy',
-//                value: 1,
-//                parent: 'Commerce',
-//                data: { description: "1 Emails", title: "Commerce#Buy" }
-//            },
-//            {
-//                label: 'marketing',
-//                value: 5,
-//                parent: 'Advertising',
-//                data: { description: "5 Emails", title: "Advertising#Marketing" }
-//            },
-//            {
-//                label: 'Discounts',
-//                value: 1,
-//                parent: 'Advertising',
-//                data: { description: "1 Emails", title: "Advertising#Discounts" }
-//            },
-//            {
-//                label: 'Personal',
-//                value: 4,
-//                parent: 'Financial',
-//                data: { description: "4 Emails", title: "Financial#Personal" }
-//            }
-//            
-//            ];
-//  
-//            
-//
-//            $('#treemap').jqxTreeMap({
-//                width: 1047,
-//                height: 250,
-//                source: data,
-//                colorRange: 1
-//            });
-//            $('.jqx-treemap-label').css('position','');
-//            $('.jqx-treemap-rectangle .jqx-treemap-label').css('position','relative').css('left','0px');
-//        });
-//`;
