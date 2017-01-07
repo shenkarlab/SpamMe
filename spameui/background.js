@@ -124,15 +124,12 @@ function createTreemapFromRespone(data) {
     stringRes = stringRes.substr(0, stringRes.length-1);
     stringRes += "]";
     
-    console.log("after createTreeMap : \n");
-    console.log(result);
-    
     return `
          $(function () {
                 $('#treemap').jqxTreeMap({
                         width: 1047,
                         height: 250,
-                        source: ` + returnMockJson() + `,
+                        source: ` + JSON.stringify(result) + `,
                         colorRange: 1,
                         renderCallbacks: {
                             '*': function (sectorHtmlElement, sectorData) {
@@ -242,7 +239,7 @@ function returnMockJson(){
                 data: { description: "5 Emails", title: "Commerce#Offers" }
             },
             {
-                label: 'lost',
+                label: 'pressure',
                 value: 1,
                 parent: 'Amotions',
                 data: { description: "4 Emails5 Emails", title: "Commerce#Sells" }
