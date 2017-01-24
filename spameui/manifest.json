@@ -3,6 +3,9 @@
 	"version": "1.0",
 	"manifest_version": 2,
 	"description": "Gmail API Extension",
+	"icons": {
+		"16": "images/sm_logo_tab.png"
+	},
 	"permissions": [
 		"activeTab",
 		"identity",
@@ -52,7 +55,7 @@
 	},
 	"content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
 	"oauth2": {
-		"client_id": "<client-id>",
+		"client_id": "560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com",
 		"scopes": [
 			"https://www.googleapis.com/auth/gmail.modify"
 		]
