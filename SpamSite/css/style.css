@@ -1,0 +1,86 @@
+.logo {
+    background-image: url("../images/sm_84.gif");
+    width: 84px;
+    height: 84px;
+    margin: 30px 0px 30px 80px ;
+}
+.header-container {
+    background-color: #f3f4f3;
+    height: 157px;
+}
+.download-button{
+    margin-top: 50px;
+    margin-right: 30px;
+}
+
+.parent-colored-div {
+    width: 210px;
+    margin: 0px 11px 153px 11px;
+}
+
+.blue-div {
+    height: 200px;
+    background-color: #659cee;
+}
+
+.green-div {
+    height: 318px;
+    background-color: #28b05e;
+}
+
+.yellow-div {
+    height: 119px;
+    background-color: #f7c135;
+}
+
+.red-div {
+    height: 397px;
+    background-color: #d54b3e;
+}
+
+.purple-div {
+    height: 279px;
+    background-color: #7f3fc9;
+}
+.bullshit-text {
+    font-size: 21px;
+    margin-bottom: 53px;
+}
+.fuck-that-picture {
+    background-color: #f3f4f3;
+    margin-bottom: 51px;
+}
+.fuck-that-hairy-pussy-of-shiran-hazona {
+    background-image: url("../images/gif-simulation_web.gif");
+    width: 915px;
+    height: 424px;
+    margin-top: 87px;
+    margin-bottom: 87px;
+}
+
+.fucking-red-button{
+    height: 75px;
+    margin-top: 55px;
+    width: 440px;
+    background-color: #d54b3e;
+    text-align: center;
+    margin-bottom: 108px;
+}
+.fucking-red-button span{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 28px;
+    display: block;
+    color: #f3f3f3;
+}
+.footer-hadir {
+    width: 100%;
+    height: 78px;
+    background-color: #c5c6c5;
+}
+
+.copyrights {
+    font-size: 12px;
+    margin-top: 30px;
+    margin-left: 30px;
+}

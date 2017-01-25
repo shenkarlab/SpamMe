@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="BlankApp" ng-cloak>
+<!--
+  Your HTML content here
+-->
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
+    <header>
+        <div layout="row" class="header-container" layout-align="space-between start">
+            <div class="logo"></div>
+            <span>spamMe</span>
+            <div class="download-button">
+                <md-button>Download</md-button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div layout="column">
+
+            <div layout="row" layout-align="center start">
+                <div class="parent-colored-div blue-div"></div>
+                <div class="parent-colored-div green-div"></div>
+                <div class="parent-colored-div yellow-div"></div>
+                <div class="parent-colored-div red-div"></div>
+                <div class="parent-colored-div purple-div"></div>
+            </div>
+
+            <div class="bullshit-text" layout="column" layout-align="center center">
+                <span>"spamMe" extension was created for those of you who receive lots of spam <br> to their Gmail box but never open them. Ever wonder whats inside ?</span>
+                <br><br>
+                <span>Now with "spamMe" you can easily find out your own spam persona.</span>
+            </div>
+
+            <div class="fuck-that-picture" layout="row" layout-align="center center">
+                <div class="fuck-that-hairy-pussy-of-shiran-hazona"></div>
+            </div>
+
+            <div class="bullshit-text" layout="column" layout-align="center center">
+                <span>"spamMe" extension was created for those of you who receive lots of spam <br> to their Gmail box but never open them. Ever wonder whats inside ?</span>
+                <br><br>
+                <span>Now with "spamMe" you can easily find out your own spam persona.</span>
+
+                <div class="fucking-red-button" ng-click="">
+                    <span>Add spam to your Gmail</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer-hadir">
+        <span class="copyrights">&copy; spamMe 2017</span>
+    </footer>
+
+
+
+    <script type="text/javascript">
+        /**
+         * You must include the dependency on 'ngMaterial'
+         */
+        angular.module('BlankApp', ['ngMaterial']);
+    </script>
+
+</body>
+
+
+
+</html>
