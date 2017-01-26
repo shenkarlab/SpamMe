@@ -3,6 +3,8 @@
     color: #fff;
     height: 20px;
 }
-.catTitle a{
+.catTitle a, a:active, a:focus, a:link{
     color: #fff;
+    text-decoration: none;
+    margin-right: 5px;
 }

@@ -8,14 +8,14 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
       if(tab.url.includes("mail.google.com")){
           if(tab.url.includes("#spam")){
               chrome.tabs.executeScript({
-                  code: `$('#catTitle').remove();`
+                  code: `$('#catTitle').remove();$('#gifs').remove();`
               });
 
               loadSpamMessages();
 
           } else {
               chrome.tabs.executeScript({
-                  code: `$('#treemap').remove();$('#catTitle').remove();`
+                  code: `$('#treemap').remove();$('#catTitle').remove();$('#gifs').remove();`
               });
               if(tab.url.includes("#search")){
                   var splited = tab.url.split('%3A');
@@ -31,16 +31,37 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
                                     catTitle.setAttribute("id", "catTitle");
                                     catTitle.style.background = "`+OBJ_COLORS[splited[splited.length-1]]+`";
                                     catTitle.style.textAlign = "left";
-                                    catTitle.innerHTML = "`+splited[splited.length-1]+`";
                                     catTitle.append(closeBtn);
+                                    catTitle.append("`+splited[splited.length-1]+`");
                                     document.getElementById(':4').insertBefore(catTitle, document.getElementById(':2'));
-                    
-                            `
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "https://api.giphy.com/v1/gifs/search?q=`+splited[splited.length-1]+`&api_key=dc6zaTOxFJmzC",
+                                        success: function( gif ) {
+                                           console.log(gif);
+                                           var gifs = document.createElement("div");
+                                           gifs.style.height = "150px";
+                                           gifs.setAttribute("id", "gifs");
+                                           for(var i=0; i<5; i++) {
+                                              var newGif = document.createElement("div");
+                                              newGif.style.background = "url('"+gif.data[i].images.fixed_width_downsampled.url+"')";
+                                              newGif.style.backgroundSize = "cover";
+                                              newGif.style.backgroundRepeat = "no-repeat";
+                                              newGif.style.width = "20%";
+                                              newGif.style.height = "150px";
+                                              newGif.style.position = "relative";
+                                              newGif.style.float = "left";
+                                              gifs.append(newGif);
+                                           }
+                                           document.getElementById(':4').insertBefore(gifs, document.getElementById(':2'));
+                                        }
+                                    });
+`
                       });
                   }
               }
           }
-      }
+       }
 
   }
 });
@@ -269,7 +290,6 @@ function createTreemapFromRespone(data) {
                                     type: 'GET',
                                     url: 'https://api.giphy.com/v1/gifs/search?q=' + sectorData.label + '&api_key=dc6zaTOxFJmzC',
                                     success: function( gif ) {
-                                        console.log("download");
                                         sectorHtmlElement.hover(function(){
                                             if($(this).attr('class').indexOf('jqx-treemap-rectangle-parent') != -1) return;
                                             var randomGif = Math.floor(Math.random() * gif.data.length);
