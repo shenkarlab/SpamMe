@@ -77,7 +77,7 @@ function loadScript(url){
 function authorize(){
   gapi.auth.authorize(
 		{
-			client_id: '560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com',
+			client_id: '995438747216-f9vnftogaoi37vquhsudses58hfuig74.apps.googleusercontent.com',
 			immediate: true,
 			scope: 'https://www.googleapis.com/auth/gmail.modify'
 		},
@@ -113,8 +113,8 @@ function loadSpamMessages(){
 function sendMessagestoCategories(msgs){
   $.ajax({
     type: "POST",
-    url: "https://protected-bastion-14333.herokuapp.com/spam/getAllCategories",
-    //url: "http://localhost:1337/spam/getAllCategories",
+      url: "https://protected-bastion-14333.herokuapp.com/spam/getAllCategories",
+      //url: "http://localhost:1337/spam/getAllCategories",
     data: {
       massages: generateRequestData(msgs)
     },
@@ -217,6 +217,7 @@ function generateRequestData(data){
     return result;
 }
 
+
 function createTreemapFromRespone(data) {
     var result = [];
     var colors = ["#629AF1", "#1BB15A", "#F9C21A", "#D74A39", "#8038CC"];
@@ -263,13 +264,24 @@ function createTreemapFromRespone(data) {
                                     
                                     
                                 });
-                                sectorHtmlElement.hover(function(){
-                                    if($(this).attr('class').indexOf('jqx-treemap-rectangle-parent') != -1) return;
-                                    $(this).css('background-image','url('+chrome.extension.getURL('treemap/images/'+$(this).find('span').text() + '.gif')+')');
-                                    $(this).css('background-size','cover');
-                                }, function(){
- $(this).css('background-image','');
-});
+                                console.log(sectorData.label);
+                                $.ajax({
+                                    type: 'GET',
+                                    url: 'https://api.giphy.com/v1/gifs/search?q=' + sectorData.label + '&api_key=dc6zaTOxFJmzC',
+                                    success: function( gif ) {
+                                        console.log("download");
+                                        sectorHtmlElement.hover(function(){
+                                            if($(this).attr('class').indexOf('jqx-treemap-rectangle-parent') != -1) return;
+                                            var randomGif = Math.floor(Math.random() * gif.data.length);
+                                            $(this).css('background-image','url('+gif.data[randomGif].images.fixed_width_downsampled.url+')');
+                                            $(this).css('background-size','cover');
+                                        }, function(){
+                                            $(this).css('background-image','');
+                                        });
+                                    }
+                                });
+                                
+                                
                             }
                         }
                     });
