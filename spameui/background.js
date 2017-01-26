@@ -10,7 +10,9 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
               chrome.tabs.executeScript({
                   code: `$('#catTitle').remove();`
               });
+
               loadSpamMessages();
+
           } else {
               chrome.tabs.executeScript({
                   code: `$('#treemap').remove();$('#catTitle').remove();`
@@ -24,11 +26,13 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
                                     var catTitle = document.createElement("div");
                                     var closeBtn = document.createElement("a");
                                     closeBtn.setAttribute("href", "https://mail.google.com/mail/u/0/#spam");
+                                    closeBtn.innerHTML = "X";
                                     catTitle.setAttribute("class", "catTitle");
                                     catTitle.setAttribute("id", "catTitle");
                                     catTitle.style.background = "`+OBJ_COLORS[splited[splited.length-1]]+`";
                                     catTitle.style.textAlign = "left";
                                     catTitle.innerHTML = "`+splited[splited.length-1]+`";
+                                    catTitle.append(closeBtn);
                                     document.getElementById(':4').insertBefore(catTitle, document.getElementById(':2'));
                     
                             `
@@ -97,12 +101,10 @@ function loadSpamMessages(){
        });
 
         promises.push(getLabels().then(function(res){
-            console.log(res);
             LABELS = res.result.labels;
         }));
 
        Promise.all(promises).then(function(res){
-           console.log(ALLMSGS);
          sendMessagestoCategories(ALLMSGS);
        });
     });
