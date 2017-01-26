@@ -49,7 +49,7 @@ class Categories{
                                     name: sub.name
                                 });
                             }
-                            snipCat.push(cat.name+"#"+sub.name);
+                            snipCat.push(sub.name.trim());
                         }
                     });
                     if(emailIndex === 0){
