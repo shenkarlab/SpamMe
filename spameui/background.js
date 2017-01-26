@@ -32,7 +32,9 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
                                     catTitle.style.background = "`+OBJ_COLORS[splited[splited.length-1]]+`";
                                     catTitle.style.textAlign = "left";
                                     catTitle.append(closeBtn);
-                                    catTitle.append("`+splited[splited.length-1]+`");
+                                    var title = "`+splited[splited.length-1]+`";
+                                    title = title.charAt(0).toUpperCase() + title.slice(1);
+                                    catTitle.append(title);
                                     document.getElementById(':4').insertBefore(catTitle, document.getElementById(':2'));
                                     $.ajax({
                                         type: "GET",
@@ -44,6 +46,7 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
                                            gifs.setAttribute("id", "gifs");
                                            for(var i=0; i<5; i++) {
                                               var newGif = document.createElement("div");
+                                              newGif.style.background = "`+OBJ_COLORS[splited[splited.length-1]]+`";
                                               newGif.style.background = "url('"+gif.data[i].images.fixed_width_downsampled.url+"')";
                                               newGif.style.backgroundSize = "cover";
                                               newGif.style.backgroundRepeat = "no-repeat";
