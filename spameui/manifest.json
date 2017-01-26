@@ -57,7 +57,7 @@
 	},
 	"content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
 	"oauth2": {
-		"client_id": "560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com",
+		"client_id": "995438747216-f9vnftogaoi37vquhsudses58hfuig74.apps.googleusercontent.com",
 		"scopes": [
 			"https://mail.google.com/",
 			"https://www.googleapis.com/auth/gmail.modify",

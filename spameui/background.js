@@ -113,8 +113,8 @@ function loadSpamMessages(){
 function sendMessagestoCategories(msgs){
   $.ajax({
     type: "POST",
-      url: "https://protected-bastion-14333.herokuapp.com/spam/getAllCategories",
-      //url: "http://localhost:1337/spam/getAllCategories",
+    url: "https://protected-bastion-14333.herokuapp.com/spam/getAllCategories",
+   //url: "http://localhost:1337/spam/getAllCategories",
     data: {
       massages: generateRequestData(msgs)
     },
