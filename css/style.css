@@ -7,17 +7,20 @@ a {
     font-family: helvetica;
     color: #020202;
 }
-
+span {
+    font-family: font81983;
+    line-height: 1.5;
+}
 #logo {
     text-decoration: none;
-    font-family: Arial;
+    font-family: font81983;
     font-size: 300%;
     margin-left: 14px;
-    margin-top: 32px;
+    margin-top: 20px;
 }
 #logo span {
-    font-family: monospace;
-    font-size: 159%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 138%;
     font-weight: 800;
 }
 
