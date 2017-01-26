@@ -10,56 +10,55 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.js"></script>
-        <header>
-            <div layout="row" class="header-container" layout-align="space-between start">
-                <div layout="row" >
-                    <div class="logo"></div>
-                    <a href="#" id="logo">spam<span>Me</span></a>
-                </div>
-                <div class="download-button">
-                    <md-button>Download</md-button>
+    <header>
+        <div layout="row" class="header-container" layout-align="space-between start">
+            <div layout="row" >
+                <div class="logo"></div>
+                <a href="#" id="logo">spam<span>Me</span></a>
+            </div>
+            <div class="download-button">
+                <md-button>Download</md-button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div layout="column">
+
+            <div layout="row" layout-align="center start">
+                <div class="parent-colored-div blue-div"></div>
+                <div class="parent-colored-div green-div"></div>
+                <div class="parent-colored-div yellow-div"></div>
+                <div class="parent-colored-div red-div"></div>
+                <div class="parent-colored-div purple-div"></div>
+            </div>
+
+            <div class="text-container" layout="column" layout-align="center center">
+                <span>"spamMe" extension was created for those of you who receive lots of spam <br> to their Gmail box but never open them. Ever wonder whats inside ?</span>
+                <br><br>
+                <span>Now with "spamMe" you can easily find out your own spam persona.</span>
+            </div>
+
+            <div class="gmail-gif-container" layout="row" layout-align="center center">
+                <div class="gmail-gif"></div>
+            </div>
+
+            <div class="text-container" layout="column" layout-align="center center">
+                <span>"spamMe" extension combines data visualization with Giphy, helping you to<br>revitalize your spam folder in fun new way.<br>
+                the 5 categories are most common spam messages.<br>You can now see your spam in quantitative,analytic form and get your<br>
+                spam persona in an amusing way with Giphy</span>
+                <div class="red-button" ng-click="">
+                    <span>Add spam to your Gmail</span>
                 </div>
             </div>
-        </header>
 
-        <main>
-            <div layout="column">
-
-                <div layout="row" layout-align="center start">
-                    <div class="parent-colored-div blue-div"></div>
-                    <div class="parent-colored-div green-div"></div>
-                    <div class="parent-colored-div yellow-div"></div>
-                    <div class="parent-colored-div red-div"></div>
-                    <div class="parent-colored-div purple-div"></div>
-                </div>
-
-                <div class="text-container" layout="column" layout-align="center center">
-                    <span>"spamMe" extension was created for those of you who receive lots of spam <br> to their Gmail box but never open them. Ever wonder whats inside ?</span>
-                    <br><br>
-                    <span>Now with "spamMe" you can easily find out your own spam persona.</span>
-                </div>
-
-                <div class="gmail-gif-container" layout="row" layout-align="center center">
-                    <div class="gmail-gif"></div>
-                </div>
-
-                <div class="text-container" layout="column" layout-align="center center">
-                    <span>"spamMe" extension was created for those of you who receive lots of spam <br> to their Gmail box but never open them. Ever wonder whats inside ?</span>
-                    <br><br>
-                    <span>Now with "spamMe" you can easily find out your own spam persona.</span>
-
-                    <div class="red-button" ng-click="">
-                        <span>Add spam to your Gmail</span>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-        <footer class="footer">
-            <div>
-                <span class="copyrights">&copy; spamMe 2017</span>
-            </div>
-        </footer>
+        </div>
+    </main>
+    <footer class="footer">
+        <div>
+            <span class="copyrights">&copy; spamMe 2017</span>
+        </div>
+    </footer>
        
         <script type="text/javascript">
             angular.module('BlankApp', ['ngMaterial']);
