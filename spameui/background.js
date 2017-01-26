@@ -98,7 +98,7 @@ function loadScript(url){
 function authorize(){
   gapi.auth.authorize(
 		{
-			client_id: '995438747216-f9vnftogaoi37vquhsudses58hfuig74.apps.googleusercontent.com',
+			client_id: '560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com',
 			immediate: true,
 			scope: 'https://www.googleapis.com/auth/gmail.modify'
 		},
@@ -293,9 +293,13 @@ function createTreemapFromRespone(data) {
                                         sectorHtmlElement.hover(function(){
                                             if($(this).attr('class').indexOf('jqx-treemap-rectangle-parent') != -1) return;
                                             var randomGif = Math.floor(Math.random() * gif.data.length);
-                                            $(this).css('background-image','url('+gif.data[randomGif].images.fixed_width_downsampled.url+')');
-                                            $(this).css('background-size','cover');
+                                            $(this).css('background-image','url('+chrome.extension.getURL('treemap/images/'+$(this).find('span').text() + '.gif')+'), url('+gif.data[randomGif].images.fixed_width_downsampled.url+')');
+                                            $(this).css('background-size','60%, cover');
+                                            $(this).css('background-repeat','no-repeat');
+                                            $(this).css('background-position','center');
+                                            $(this).find('span').hide();
                                         }, function(){
+                                            $(this).find('span').show();
                                             $(this).css('background-image','');
                                         });
                                     }
