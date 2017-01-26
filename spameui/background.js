@@ -224,6 +224,7 @@ function createTreemapFromRespone(data) {
     
     //convert the response data for treemap
     data.forEach(function(el, index){
+        console.log(el);
         if(el.subCategories.length != 0) {
             result.push({
                 label: el.name,
@@ -249,8 +250,9 @@ function createTreemapFromRespone(data) {
          $(function () {
             $(document).ready(function() {
                 $('#treemap').jqxTreeMap({
-                        width: 1047,
-                        height: 250,
+                        width: '100%',
+                        selectionEnabled: false,
+                        height: 400,
                         source: ` + JSON.stringify(result) + `,
                         colorRange: 1,
                         renderCallbacks: {
