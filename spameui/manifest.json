@@ -10,12 +10,14 @@
 		"activeTab",
 		"identity",
 		"*://*.google.com/*",
-		"http://*/"
+		"http://*/",
+		"https://*/"
 	],
 	"content_scripts": [{
         "matches": ["*://*/*"],
 		"css": [
-			"treemap/jqx.base.css"
+			"treemap/jqx.base.css",
+			"style/style.css"
 		]
 	}],
 	"web_accessible_resources": [
@@ -57,7 +59,9 @@
 	"oauth2": {
 		"client_id": "560629873798-26fjh4c0pfeham2v1it7kci42qfi98vk.apps.googleusercontent.com",
 		"scopes": [
-			"https://www.googleapis.com/auth/gmail.modify"
+			"https://mail.google.com/",
+			"https://www.googleapis.com/auth/gmail.modify",
+			"https://www.googleapis.com/auth/gmail.labels"
 		]
 	}
 }
