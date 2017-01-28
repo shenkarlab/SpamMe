@@ -4,7 +4,7 @@
     font-size: 15px;
     vertical-align: middle;
 }
-.catTitle a, a:active, a:focus, a:link{
+.catTitle a, .catTitle a:active, .catTitle a:focus, .catTitle a:link, .catTitle a:visited, .catTitle a:hover{
     font-size: 20px;
     color: #fff;
     text-decoration: none;
