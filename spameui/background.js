@@ -169,7 +169,7 @@ function addLabelsToAllMsgs(emailsWithLabels){
                     if(r!=-1)newTags.push(r);
                 });
                 var p = new Promise(function(resolve,reject) {
-                    addLabelToThread(findThreadId(email.id), newTags, function(resolte){
+                    addLabelToMessage(email.id, newTags, function(resolte){
                         resolve();
                     });
                 });
